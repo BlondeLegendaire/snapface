@@ -1,13 +1,20 @@
-<mat-card class="example-card">
+<mat-card class="face-snap-card">
   <mat-card-header>
-    <mat-card-title>{{ faceSnap.title }}</mat-card-title>
-    <mat-card-subtitle>Mise en ligne le {{ faceSnap.createdDate }}</mat-card-subtitle>
+    <mat-card-title>{{ faceSnap.title | titlecase }}</mat-card-title>
+    <mat-card-subtitle>Mise en ligne {{ faceSnap.createdDate | date: 'à HH:mm, le d MMMM yyyy' }}</mat-card-subtitle>
   </mat-card-header>
+  <img mat-card-image [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
   <mat-card-content>
-    <p>{{ faceSnap.description }}</p>
-    <img mat-card-image [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
-    <mat-card-actions>
-      <button (click)="onSnap()">{{ buttonText }}</button>
-    </mat-card-actions>
+    <p>
+      {{ faceSnap.description }}
+    </p>
+    <p *ngIf="faceSnap.location">Photo prise à {{ faceSnap.location }}</p>
   </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-button [matBadge]="faceSnap.snaps" (click)="onSnap()">{{ buttonText }}</button>
+    </mat-card-actions>
+  <mat-card-footer>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </mat-card-footer>
 </mat-card>
