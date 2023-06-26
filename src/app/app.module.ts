@@ -12,11 +12,18 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatSidenavModule} from "@angular/material/sidenav";
+import { NavigationComponent } from './navigation/navigation.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { FaceSnapListComponent } from './face-snap-list/face-snap-list.component';
+import {MatLineModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
     AppComponent,
-    FaceSnapComponent
+    FaceSnapComponent,
+    NavigationComponent,
+    FaceSnapListComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +33,10 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     MatIconModule,
     MatBadgeModule,
     MatProgressBarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatLineModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'fr-FR'}

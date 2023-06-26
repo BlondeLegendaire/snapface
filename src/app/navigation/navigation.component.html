@@ -1,0 +1,40 @@
+<mat-sidenav-container class="sidenav-container" autosize>
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      role="navigation"
+      mode="side"
+      opened >
+    <h1>SnapFace</h1>
+    <button mat-mini-fab (click)="isExpanded = !isExpanded" style="margin: 10px;">
+      <mat-icon aria-label="Menu">keyboard_arrow_right</mat-icon>
+    </button>
+    <mat-nav-list>
+      <mat-list-item>
+        <mat-icon matListItemIcon>person</mat-icon>
+        <h4 matListItemTitle *ngIf="isExpanded">Link 1</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListItemIcon>domain</mat-icon>
+        <h4 matListItemTitle *ngIf="isExpanded">Link 2</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListItemIcon>woman</mat-icon>
+        <h4 matListItemTitle *ngIf="isExpanded">Link 3</h4>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>snapface</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <app-face-snap-list></app-face-snap-list>
+  </mat-sidenav-content>
+</mat-sidenav-container>
